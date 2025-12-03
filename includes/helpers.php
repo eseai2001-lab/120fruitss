@@ -507,21 +507,21 @@ function ftp_esc($text) {
  */
 function ftp_get_logo_straw_svg($gradient_id = 'goldGradient') {
     return '<svg class="ftp-logo-straw" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Main straw body - shorter, inside the 0 -->
-        <line x1="40" y1="65" x2="55" y2="50" stroke="url(#' . esc_attr($gradient_id) . ')" stroke-width="3" stroke-linecap="round"/>
+        <!-- Main straw body - centered inside the 0 -->
+        <line x1="42" y1="62" x2="54" y2="50" stroke="url(#' . esc_attr($gradient_id) . ')" stroke-width="3.5" stroke-linecap="round"/>
         <!-- Bent tip of straw - bends to the right -->
-        <path d="M 55 50 Q 60 48, 63 50" stroke="url(#' . esc_attr($gradient_id) . ')" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 54 50 Q 58 48, 60 50" stroke="url(#' . esc_attr($gradient_id) . ')" stroke-width="3.5" fill="none" stroke-linecap="round"/>
         <!-- Sparkle effects -->
-        <circle cx="43" cy="63" r="1.5" fill="#FFD700" opacity="0.8">
+        <circle cx="45" cy="60" r="1.5" fill="#FFD700" opacity="0.8">
             <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
         </circle>
-        <circle cx="48" cy="58" r="1.5" fill="#FFEB3B" opacity="0.8">
+        <circle cx="48" cy="56" r="1.5" fill="#FFEB3B" opacity="0.8">
             <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
         </circle>
-        <circle cx="53" cy="53" r="1.5" fill="#FFC107" opacity="0.8">
+        <circle cx="51" cy="53" r="1.5" fill="#FFC107" opacity="0.8">
             <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="0.6s"/>
         </circle>
-        <circle cx="58" cy="49" r="1" fill="#FFFFFF" opacity="0.9">
+        <circle cx="56" cy="49" r="1" fill="#FFFFFF" opacity="0.9">
             <animate attributeName="opacity" values="0.5;1;0.5" dur="1.2s" repeatCount="indefinite" begin="0.4s"/>
         </circle>
         <!-- Red and Gold gradient definition (like statistics counter) -->
