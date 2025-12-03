@@ -268,12 +268,12 @@
     transform: scale(1.05);
 }
 
-/* Sparkling Red/Gold Diagonal Straw - truly inside the 0 */
+/* Sparkling Red/Gold Diagonal Straw - contained inside the 0 */
 .ftp-logo-straw {
     position: absolute;
-    width: 25px;
-    height: 25px;
-    right: 8px;
+    width: 22px;
+    height: 22px;
+    right: 9px;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -1666,9 +1666,9 @@
 
 .ftp-footer-logo-text .ftp-logo-straw {
     position: absolute;
-    width: 35px;
-    height: 35px;
-    right: 12px;
+    width: 32px;
+    height: 32px;
+    right: 14px;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -2101,15 +2101,15 @@
     
     /* Mobile straw adjustment */
     .ftp-logo-straw {
-        width: 20px;
-        height: 20px;
-        right: 6px;
+        width: 18px;
+        height: 18px;
+        right: 7px;
     }
     
     .ftp-footer-logo-text .ftp-logo-straw {
-        width: 28px;
-        height: 28px;
-        right: 9px;
+        width: 26px;
+        height: 26px;
+        right: 11px;
     }
     
     .ftp-hero-title {

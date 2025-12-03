@@ -577,21 +577,21 @@ function ftp_esc($text) {
  */
 function ftp_get_logo_straw_svg($gradient_id = 'goldGradient') {
     return '<svg class="ftp-logo-straw" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Main straw body - centered inside the 0 -->
-        <line x1="42" y1="62" x2="54" y2="50" stroke="url(#' . esc_attr($gradient_id) . ')" stroke-width="3.5" stroke-linecap="round"/>
-        <!-- Bent tip of straw - bends to the right -->
-        <path d="M 54 50 Q 58 48, 60 50" stroke="url(#' . esc_attr($gradient_id) . ')" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-        <!-- Sparkle effects -->
-        <circle cx="45" cy="60" r="1.5" fill="#FFD700" opacity="0.8">
+        <!-- Main straw body - completely inside the 0, diagonal from bottom-left to top-right -->
+        <line x1="38" y1="58" x2="50" y2="46" stroke="url(#' . esc_attr($gradient_id) . ')" stroke-width="3" stroke-linecap="round"/>
+        <!-- Bent tip of straw - bends slightly to the right, stays inside -->
+        <path d="M 50 46 Q 53 44, 55 46" stroke="url(#' . esc_attr($gradient_id) . ')" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- Sparkle effects - positioned along the straw -->
+        <circle cx="40" cy="56" r="1.2" fill="#FFD700" opacity="0.8">
             <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
         </circle>
-        <circle cx="48" cy="56" r="1.5" fill="#FFEB3B" opacity="0.8">
+        <circle cx="44" cy="52" r="1.2" fill="#FFEB3B" opacity="0.8">
             <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
         </circle>
-        <circle cx="51" cy="53" r="1.5" fill="#FFC107" opacity="0.8">
+        <circle cx="47" cy="49" r="1.2" fill="#FFC107" opacity="0.8">
             <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="0.6s"/>
         </circle>
-        <circle cx="56" cy="49" r="1" fill="#FFFFFF" opacity="0.9">
+        <circle cx="52" cy="45" r="0.8" fill="#FFFFFF" opacity="0.9">
             <animate attributeName="opacity" values="0.5;1;0.5" dur="1.2s" repeatCount="indefinite" begin="0.4s"/>
         </circle>
         <!-- Red and Gold gradient definition (like statistics counter) -->
