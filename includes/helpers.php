@@ -335,9 +335,9 @@ function ftp_get_special_plans() {
             'icon' => '🍎',
             'description' => 'Carefully curated low-calorie, high-fiber fruit combinations to boost metabolism and support healthy weight loss.',
             'plans' => array(
-                array('duration' => '7 Days', 'price' => '₦25,000'),
-                array('duration' => '14 Days', 'price' => '₦45,000'),
-                array('duration' => '30 Days', 'price' => '₦80,000'),
+                array('duration' => '1 Week', 'price' => '₦30,000'),
+                array('duration' => '2 Weeks', 'price' => '₦50,000'),
+                array('duration' => '1 Month', 'price' => '₦95,000'),
             )
         ),
         'weight_gain' => array(
@@ -345,28 +345,49 @@ function ftp_get_special_plans() {
             'icon' => '💪',
             'description' => 'Nutrient-dense, calorie-rich fruit combinations with healthy fats to support muscle growth and healthy weight gain.',
             'plans' => array(
-                array('duration' => '7 Days', 'price' => '₦25,000'),
-                array('duration' => '14 Days', 'price' => '₦45,000'),
-                array('duration' => '30 Days', 'price' => '₦80,000'),
+                array('duration' => '1 Week', 'price' => '₦35,000'),
+                array('duration' => '2 Weeks', 'price' => '₦60,000'),
+                array('duration' => '1 Month', 'price' => '₦110,000'),
             )
         ),
-        'clear_skin' => array(
-            'name' => 'Clear Skin + Glow',
-            'icon' => '✨',
-            'description' => 'Antioxidant-rich fruits packed with vitamins A, C, and E to promote radiant, healthy skin from within.',
+        'weight_maintenance' => array(
+            'name' => 'Weight Maintenance',
+            'icon' => '⚖️',
+            'description' => 'Balanced fruit salads and smoothies to help maintain your ideal weight naturally.',
             'plans' => array(
-                array('duration' => '7 Days', 'price' => '₦20,000'),
-                array('duration' => '14 Days', 'price' => '₦35,000'),
-                array('duration' => '30 Days', 'price' => '₦60,000'),
+                array('duration' => '1 Week', 'price' => '₦30,000'),
+                array('duration' => '2 Weeks', 'price' => '₦55,000'),
+                array('duration' => '1 Month', 'price' => '₦105,000'),
             )
         ),
         'libido' => array(
-            'name' => 'Libido',
+            'name' => 'Libido Boost',
             'icon' => '❤️',
             'description' => 'Natural aphrodisiac fruits to enhance vitality and intimate wellness.',
             'plans' => array(
-                array('duration' => '7 Days', 'price' => '₦30,000'),
-                array('duration' => '14 Days', 'price' => '₦55,000'),
+                array('duration' => '1 Week', 'price' => '₦45,000'),
+                array('duration' => '2 Weeks', 'price' => '₦80,000'),
+                array('duration' => '1 Month', 'price' => '₦150,000'),
+            )
+        ),
+        'clear_skin' => array(
+            'name' => 'Clear Skin',
+            'icon' => '✨',
+            'description' => 'Antioxidant-rich fruits packed with vitamins A, C, and E to promote radiant, healthy skin from within.',
+            'plans' => array(
+                array('duration' => '1 Week', 'price' => '₦45,000'),
+                array('duration' => '2 Weeks', 'price' => '₦85,000'),
+                array('duration' => '1 Month', 'price' => '₦160,000'),
+            )
+        ),
+        'stress_relief' => array(
+            'name' => 'Stress Relief',
+            'icon' => '😌',
+            'description' => 'Calming fruits rich in magnesium and potassium to help manage stress and promote relaxation.',
+            'plans' => array(
+                array('duration' => '1 Week', 'price' => '₦30,000'),
+                array('duration' => '2 Weeks', 'price' => '₦55,000'),
+                array('duration' => '1 Month', 'price' => '₦105,000'),
             )
         ),
         'energy_boost' => array(
@@ -374,45 +395,29 @@ function ftp_get_special_plans() {
             'icon' => '⚡',
             'description' => 'High-energy fruits with natural sugars and B-vitamins to keep you energized throughout the day.',
             'plans' => array(
-                array('duration' => '7 Days', 'price' => '₦20,000'),
-                array('duration' => '14 Days', 'price' => '₦35,000'),
+                array('duration' => '1 Week', 'price' => '₦35,000'),
+                array('duration' => '2 Weeks', 'price' => '₦60,000'),
+                array('duration' => '1 Month', 'price' => '₦110,000'),
             )
         ),
-        'stress_relief' => array(
-            'name' => 'Stress Relief',
-            'icon' => '🧘',
-            'description' => 'Calming fruits rich in magnesium and potassium to help manage stress and promote relaxation.',
-            'plans' => array(
-                array('duration' => '7 Days', 'price' => '₦20,000'),
-                array('duration' => '14 Days', 'price' => '₦35,000'),
-            )
-        ),
-        'mental_focus' => array(
-            'name' => 'Mental Focus',
-            'icon' => '🧠',
+        'focus' => array(
+            'name' => 'Focus',
+            'icon' => '🎯',
             'description' => 'Brain-boosting fruits with omega fatty acids and antioxidants to enhance concentration and mental clarity.',
             'plans' => array(
-                array('duration' => '7 Days', 'price' => '₦20,000'),
-                array('duration' => '14 Days', 'price' => '₦35,000'),
+                array('duration' => '1 Week', 'price' => '₦25,000'),
+                array('duration' => '2 Weeks', 'price' => '₦45,000'),
+                array('duration' => '1 Month', 'price' => '₦80,000'),
             )
         ),
-        'immune_booster' => array(
-            'name' => 'Immune Booster',
-            'icon' => '🛡️',
-            'description' => 'Vitamin C and zinc-rich fruits to strengthen your immune system and protect against illness.',
-            'plans' => array(
-                array('duration' => '7 Days', 'price' => '₦25,000'),
-                array('duration' => '14 Days', 'price' => '₦45,000'),
-            )
-        ),
-        'detox' => array(
+        'detoxification' => array(
             'name' => 'Detoxification',
             'icon' => '🌿',
             'description' => 'Cleansing fruits to support liver function and help eliminate toxins from your body.',
             'plans' => array(
-                array('duration' => '3 Days', 'price' => '₦15,000'),
-                array('duration' => '7 Days', 'price' => '₦30,000'),
-                array('duration' => '14 Days', 'price' => '₦55,000'),
+                array('duration' => '1 Week', 'price' => '₦45,000'),
+                array('duration' => '2 Weeks', 'price' => '₦45,000'),
+                array('duration' => '1 Month', 'price' => '₦45,000'),
             )
         ),
     );
