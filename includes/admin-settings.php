@@ -129,7 +129,7 @@ function ftp_settings_page() {
                                 <input type="text" 
                                        id="ftp_logo_url" 
                                        name="ftp_settings[logo_url]" 
-                                       value="<?php echo esc_attr($settings['logo_url'] ?? ''); ?>" 
+                                       value="<?php echo esc_attr(isset($settings['logo_url']) ? $settings['logo_url'] : ''); ?>" 
                                        class="regular-text ftp-media-url">
                                 <button type="button" class="button ftp-media-upload" data-target="ftp_logo_url">
                                     Upload Image
@@ -150,8 +150,8 @@ function ftp_settings_page() {
                         </th>
                         <td>
                             <select id="ftp_hero_display_mode" name="ftp_settings[hero_display_mode]">
-                                <option value="video" <?php selected($settings['hero_display_mode'] ?? 'video', 'video'); ?>>Video</option>
-                                <option value="image" <?php selected($settings['hero_display_mode'] ?? 'video', 'image'); ?>>Image</option>
+                                <option value="video" <?php selected(isset($settings['hero_display_mode']) ? $settings['hero_display_mode'] : 'video', 'video'); ?>>Video</option>
+                                <option value="image" <?php selected(isset($settings['hero_display_mode']) ? $settings['hero_display_mode'] : 'video', 'image'); ?>>Image</option>
                             </select>
                             <p class="description">Choose whether to display a video or image in the hero section.</p>
                         </td>
@@ -166,7 +166,7 @@ function ftp_settings_page() {
                                 <input type="text" 
                                        id="ftp_hero_video_url" 
                                        name="ftp_settings[hero_video_url]" 
-                                       value="<?php echo esc_attr($settings['hero_video_url'] ?? ''); ?>" 
+                                       value="<?php echo esc_attr(isset($settings['hero_video_url']) ? $settings['hero_video_url'] : ''); ?>" 
                                        class="regular-text ftp-media-url">
                                 <button type="button" class="button ftp-media-upload-video" data-target="ftp_hero_video_url">
                                     Upload Video
@@ -185,7 +185,7 @@ function ftp_settings_page() {
                                 <input type="text" 
                                        id="ftp_hero_image_url" 
                                        name="ftp_settings[hero_image_url]" 
-                                       value="<?php echo esc_attr($settings['hero_image_url'] ?? ''); ?>" 
+                                       value="<?php echo esc_attr(isset($settings['hero_image_url']) ? $settings['hero_image_url'] : ''); ?>" 
                                        class="regular-text ftp-media-url">
                                 <button type="button" class="button ftp-media-upload" data-target="ftp_hero_image_url">
                                     Upload Image
@@ -208,7 +208,7 @@ function ftp_settings_page() {
                             <input type="text" 
                                    id="ftp_menu_page_url" 
                                    name="ftp_settings[menu_page_url]" 
-                                   value="<?php echo esc_attr($settings['menu_page_url'] ?? ''); ?>" 
+                                   value="<?php echo esc_attr(isset($settings['menu_page_url']) ? $settings['menu_page_url'] : ''); ?>" 
                                    class="regular-text">
                             <p class="description">Enter the URL of the page containing the [ftp_menu_full] shortcode. Used by the floating support button and menu links.</p>
                         </td>
@@ -222,7 +222,7 @@ function ftp_settings_page() {
                             <input type="text" 
                                    id="ftp_special_plans_page_url" 
                                    name="ftp_settings[special_plans_page_url]" 
-                                   value="<?php echo esc_attr($settings['special_plans_page_url'] ?? ''); ?>" 
+                                   value="<?php echo esc_attr(isset($settings['special_plans_page_url']) ? $settings['special_plans_page_url'] : ''); ?>" 
                                    class="regular-text">
                             <p class="description">Enter the URL of the page containing the [ftp_special_plans_full] shortcode (wellness program page).</p>
                         </td>
@@ -236,7 +236,7 @@ function ftp_settings_page() {
                             <input type="text" 
                                    id="ftp_special_plan_menu_page_url" 
                                    name="ftp_settings[special_plan_menu_page_url]" 
-                                   value="<?php echo esc_attr($settings['special_plan_menu_page_url'] ?? ''); ?>" 
+                                   value="<?php echo esc_attr(isset($settings['special_plan_menu_page_url']) ? $settings['special_plan_menu_page_url'] : ''); ?>" 
                                    class="regular-text">
                             <p class="description">Enter the URL of the page containing the [ftp_special_plan_menu_full] shortcode (special plan menu items).</p>
                         </td>
@@ -257,7 +257,7 @@ function ftp_settings_page() {
                             <input type="text" 
                                    id="ftp_instagram_url" 
                                    name="ftp_settings[instagram_url]" 
-                                   value="<?php echo esc_attr($settings['instagram_url'] ?? ''); ?>" 
+                                   value="<?php echo esc_attr(isset($settings['instagram_url']) ? $settings['instagram_url'] : ''); ?>" 
                                    class="regular-text"
                                    placeholder="https://instagram.com/yourprofile">
                             <p class="description">Enter your Instagram profile URL.</p>
@@ -271,7 +271,7 @@ function ftp_settings_page() {
                             <input type="text" 
                                    id="ftp_tiktok_url" 
                                    name="ftp_settings[tiktok_url]" 
-                                   value="<?php echo esc_attr($settings['tiktok_url'] ?? ''); ?>" 
+                                   value="<?php echo esc_attr(isset($settings['tiktok_url']) ? $settings['tiktok_url'] : ''); ?>" 
                                    class="regular-text"
                                    placeholder="https://tiktok.com/@yourprofile">
                             <p class="description">Enter your TikTok profile URL.</p>

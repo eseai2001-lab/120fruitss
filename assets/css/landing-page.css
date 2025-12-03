@@ -2134,11 +2134,27 @@ html {
     .ftp-offer-badge,
     .ftp-package-card::before,
     .ftp-plan-card::before,
-    .ftp-offer-card::before {
-        animation: none;
+    .ftp-offer-card::before,
+    .ftp-social-link,
+    .ftp-social-link::before,
+    .ftp-logo-straw,
+    .ftp-footer-links a,
+    .ftp-plan-icon,
+    .ftp-plan-placeholder-icon,
+    .ftp-sparkle-icon,
+    .ftp-event-icon,
+    .ftp-contact-icon,
+    .ftp-menu-card-icon,
+    .ftp-placeholder-icon {
+        animation: none !important;
     }
     
     * {
         transition-duration: 0.01ms !important;
+    }
+    
+    /* Disable SVG animations */
+    svg animate {
+        animation: none !important;
     }
 }
