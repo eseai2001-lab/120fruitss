@@ -208,26 +208,26 @@
     transform: scale(1.05);
 }
 
-/* Sparkling Gold Diagonal Straw */
+/* Sparkling Red/Gold Diagonal Straw - stays inside the 0 */
 .ftp-logo-straw {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    right: -10px;
+    width: 35px;
+    height: 35px;
+    right: 2px;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
-    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
+    filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.4)) drop-shadow(0 0 5px rgba(255, 215, 0, 0.4));
     animation: ftp-straw-shimmer 2s ease-in-out infinite;
 }
 
 @keyframes ftp-straw-shimmer {
     0%, 100% { 
-        filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
+        filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.4)) drop-shadow(0 0 5px rgba(255, 215, 0, 0.4));
         transform: translateY(-50%) scale(1);
     }
     50% { 
-        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.9));
+        filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.6)) drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
         transform: translateY(-50%) scale(1.05);
     }
 }
@@ -1595,13 +1595,13 @@
 
 .ftp-footer-logo-text .ftp-logo-straw {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    right: -15px;
+    width: 40px;
+    height: 40px;
+    right: 5px;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
-    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
+    filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.4)) drop-shadow(0 0 5px rgba(255, 215, 0, 0.4));
     animation: ftp-straw-shimmer 2s ease-in-out infinite;
 }
 
@@ -1629,23 +1629,26 @@
 }
 
 .ftp-footer-links a {
-    color: var(--ftp-gold);
+    background: linear-gradient(135deg, var(--ftp-primary-red), var(--ftp-gold), var(--ftp-primary-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
     text-decoration: none;
     transition: var(--ftp-transition);
     position: relative;
     display: inline-block;
-    text-shadow: var(--ftp-gold-glow);
     animation: ftp-footer-link-shimmer 3s ease-in-out infinite;
 }
 
 @keyframes ftp-footer-link-shimmer {
     0%, 100% { 
-        color: var(--ftp-gold);
-        text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        background-position: 0% center;
+        filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.3)) drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
     }
     50% { 
-        color: var(--ftp-gold-light);
-        text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        background-position: 100% center;
+        filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.5)) drop-shadow(0 0 12px rgba(255, 215, 0, 0.5));
     }
 }
 
@@ -1654,9 +1657,11 @@
     position: absolute;
     left: -15px;
     opacity: 0;
-    color: var(--ftp-gold);
+    background: linear-gradient(135deg, var(--ftp-primary-red), var(--ftp-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     transition: all 0.3s ease;
-    text-shadow: var(--ftp-gold-glow);
     animation: ftp-sparkle-rotate 2s linear infinite;
 }
 
@@ -1670,9 +1675,8 @@
 }
 
 .ftp-footer-links a:hover {
-    color: var(--ftp-gold-light);
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
     transform: translateX(5px);
+    filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.6)) drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
 }
 
 .ftp-footer-contact p {
@@ -1695,20 +1699,23 @@
     border-radius: 50%;
     text-decoration: none;
     transition: var(--ftp-transition);
-    background: linear-gradient(135deg, var(--ftp-gold), var(--ftp-gold-dark));
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    background: linear-gradient(135deg, var(--ftp-primary-red), var(--ftp-gold), var(--ftp-primary-red));
+    background-size: 200% auto;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3), 0 0 15px rgba(255, 215, 0, 0.3);
     animation: ftp-social-pulse 2s ease-in-out infinite;
     position: relative;
 }
 
 @keyframes ftp-social-pulse {
     0%, 100% { 
-        box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        box-shadow: 0 0 15px rgba(255, 0, 0, 0.3), 0 0 15px rgba(255, 215, 0, 0.3);
         transform: scale(1);
+        background-position: 0% center;
     }
     50% { 
-        box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+        box-shadow: 0 0 25px rgba(255, 0, 0, 0.5), 0 0 25px rgba(255, 215, 0, 0.5);
         transform: scale(1.05);
+        background-position: 100% center;
     }
 }
 
@@ -1720,7 +1727,7 @@
     right: -2px;
     bottom: -2px;
     border-radius: 50%;
-    background: linear-gradient(45deg, var(--ftp-gold), transparent, var(--ftp-gold-light), transparent);
+    background: linear-gradient(45deg, var(--ftp-primary-red), transparent, var(--ftp-gold), transparent);
     opacity: 0;
     transition: opacity 0.3s ease;
     animation: ftp-social-rotate 3s linear infinite;
@@ -1734,7 +1741,7 @@
 
 .ftp-social-link:hover {
     transform: scale(1.3) rotate(10deg);
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.6);
     animation: ftp-social-bounce 0.6s ease-in-out;
 }
 
@@ -1800,107 +1807,109 @@
 
 .ftp-support-popup {
     position: absolute;
-    bottom: 70px;
+    bottom: 65px;
     right: 0;
-    background: linear-gradient(135deg, var(--ftp-gold), var(--ftp-gold-light));
-    color: var(--ftp-black);
-    padding: 12px 20px;
-    border-radius: 10px;
-    font-size: 0.9rem;
+    background: linear-gradient(135deg, var(--ftp-primary-red), var(--ftp-gold), var(--ftp-primary-red));
+    background-size: 200% auto;
+    color: var(--ftp-white);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 0.85rem;
     font-weight: 700;
     white-space: nowrap;
-    box-shadow: 0 5px 25px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4), 0 0 15px rgba(255, 215, 0, 0.3);
     /* Always visible - not hidden */
     opacity: 1;
     transform: translateY(0);
     animation: ftp-popup-bounce-sparkle 2s ease-in-out infinite;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes ftp-popup-bounce-sparkle {
     0%, 100% { 
         transform: translateY(0);
-        box-shadow: 0 5px 25px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3);
+        background-position: 0% center;
+        box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4), 0 0 15px rgba(255, 215, 0, 0.3);
     }
     50% { 
-        transform: translateY(-8px);
-        box-shadow: 0 8px 30px rgba(255, 215, 0, 0.7), 0 0 30px rgba(255, 215, 0, 0.5);
+        transform: translateY(-6px);
+        background-position: 100% center;
+        box-shadow: 0 6px 25px rgba(255, 0, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.5);
     }
 }
 
 .ftp-support-popup::after {
     content: '';
     position: absolute;
-    bottom: -8px;
-    right: 20px;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 8px solid var(--ftp-gold-light);
+    bottom: -6px;
+    right: 18px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--ftp-primary-red);
 }
 
 .ftp-support-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--ftp-gold), var(--ftp-gold-dark));
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--ftp-primary-red), var(--ftp-gold), var(--ftp-primary-red));
+    background-size: 200% auto;
     border-radius: 50%;
     text-decoration: none;
-    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4), 0 0 10px rgba(255, 215, 0, 0.3);
     transition: var(--ftp-transition);
-    animation: ftp-pulse-gold 2s infinite;
     position: relative;
     overflow: visible;
 }
 
-.ftp-support-btn::before {
+/* Pulsing circles around button */
+.ftp-support-btn::before,
+.ftp-support-btn::after {
     content: '';
     position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    background: linear-gradient(45deg, var(--ftp-gold), transparent, var(--ftp-gold-light), transparent);
-    opacity: 0.6;
-    animation: ftp-chat-rotate 3s linear infinite;
-    z-index: -1;
+    border: 2px solid;
+    border-color: var(--ftp-primary-red);
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    animation: ftp-pulse-circle 2s ease-out infinite;
 }
 
-@keyframes ftp-chat-rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+.ftp-support-btn::after {
+    animation-delay: 1s;
+}
+
+@keyframes ftp-pulse-circle {
+    0% {
+        width: 100%;
+        height: 100%;
+        opacity: 0.8;
+    }
+    100% {
+        width: 160%;
+        height: 160%;
+        opacity: 0;
+        border-color: var(--ftp-gold);
+    }
 }
 
 .ftp-support-btn:hover {
-    transform: scale(1.15) rotate(10deg);
-    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6);
-    animation: ftp-chat-wiggle 0.5s ease-in-out;
-}
-
-@keyframes ftp-chat-wiggle {
-    0%, 100% { transform: scale(1.15) rotate(10deg); }
-    25% { transform: scale(1.2) rotate(-10deg); }
-    50% { transform: scale(1.15) rotate(10deg); }
-    75% { transform: scale(1.2) rotate(-10deg); }
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(255, 0, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.5);
+    background-position: 100% center;
 }
 
 .ftp-support-icon {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-}
-
-@keyframes ftp-pulse-gold {
-    0% {
-        box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5), 0 0 0 0 rgba(255, 215, 0, 0.5);
-    }
-    70% {
-        box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5), 0 0 0 20px rgba(255, 215, 0, 0);
-    }
-    100% {
-        box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5), 0 0 0 0 rgba(255, 215, 0, 0);
-    }
+    position: relative;
+    z-index: 1;
 }
 
 /* ===================== RESPONSIVE STYLES ===================== */
@@ -2021,15 +2030,15 @@
     
     /* Mobile straw adjustment */
     .ftp-logo-straw {
-        width: 35px;
-        height: 35px;
-        right: -5px;
+        width: 28px;
+        height: 28px;
+        right: 1px;
     }
     
     .ftp-footer-logo-text .ftp-logo-straw {
-        width: 40px;
-        height: 40px;
-        right: -10px;
+        width: 32px;
+        height: 32px;
+        right: 3px;
     }
     
     .ftp-hero-title {

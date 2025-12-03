@@ -507,34 +507,34 @@ function ftp_esc($text) {
  */
 function ftp_get_logo_straw_svg($gradient_id = 'goldGradient') {
     return '<svg class="ftp-logo-straw" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <!-- Main straw body - diagonal from bottom-left to top-right -->
-        <line x1="20" y1="80" x2="65" y2="35" stroke="url(#' . esc_attr($gradient_id) . ')" stroke-width="3" stroke-linecap="round"/>
+        <!-- Main straw body - shorter, inside the 0 -->
+        <line x1="40" y1="65" x2="55" y2="50" stroke="url(#' . esc_attr($gradient_id) . ')" stroke-width="3" stroke-linecap="round"/>
         <!-- Bent tip of straw - bends to the right -->
-        <path d="M 65 35 Q 75 32, 80 35" stroke="url(#' . esc_attr($gradient_id) . ')" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 55 50 Q 60 48, 63 50" stroke="url(#' . esc_attr($gradient_id) . ')" stroke-width="3" fill="none" stroke-linecap="round"/>
         <!-- Sparkle effects -->
-        <circle cx="30" cy="70" r="2" fill="#FFD700" opacity="0.8">
+        <circle cx="43" cy="63" r="1.5" fill="#FFD700" opacity="0.8">
             <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
         </circle>
-        <circle cx="45" cy="55" r="2" fill="#FFEB3B" opacity="0.8">
+        <circle cx="48" cy="58" r="1.5" fill="#FFEB3B" opacity="0.8">
             <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
         </circle>
-        <circle cx="60" cy="40" r="2" fill="#FFC107" opacity="0.8">
+        <circle cx="53" cy="53" r="1.5" fill="#FFC107" opacity="0.8">
             <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="0.6s"/>
         </circle>
-        <circle cx="72" cy="34" r="1.5" fill="#FFFFFF" opacity="0.9">
+        <circle cx="58" cy="49" r="1" fill="#FFFFFF" opacity="0.9">
             <animate attributeName="opacity" values="0.5;1;0.5" dur="1.2s" repeatCount="indefinite" begin="0.4s"/>
         </circle>
-        <!-- Gold gradient definition -->
+        <!-- Red and Gold gradient definition (like statistics counter) -->
         <defs>
             <linearGradient id="' . esc_attr($gradient_id) . '" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1">
-                    <animate attributeName="stop-color" values="#FFD700;#FFEB3B;#FFC107;#FFD700" dur="3s" repeatCount="indefinite"/>
+                <stop offset="0%" style="stop-color:#FF0000;stop-opacity:1">
+                    <animate attributeName="stop-color" values="#FF0000;#FFD700;#FF0000" dur="3s" repeatCount="indefinite"/>
                 </stop>
-                <stop offset="50%" style="stop-color:#FFEB3B;stop-opacity:1">
-                    <animate attributeName="stop-color" values="#FFEB3B;#FFC107;#FFD700;#FFEB3B" dur="3s" repeatCount="indefinite"/>
+                <stop offset="50%" style="stop-color:#FFD700;stop-opacity:1">
+                    <animate attributeName="stop-color" values="#FFD700;#FF0000;#FFD700" dur="3s" repeatCount="indefinite"/>
                 </stop>
-                <stop offset="100%" style="stop-color:#FFC107;stop-opacity:1">
-                    <animate attributeName="stop-color" values="#FFC107;#FFD700;#FFEB3B;#FFC107" dur="3s" repeatCount="indefinite"/>
+                <stop offset="100%" style="stop-color:#FF0000;stop-opacity:1">
+                    <animate attributeName="stop-color" values="#FF0000;#FFD700;#FF0000" dur="3s" repeatCount="indefinite"/>
                 </stop>
             </linearGradient>
         </defs>
