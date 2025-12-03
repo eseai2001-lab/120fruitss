@@ -24,6 +24,26 @@
     --ftp-gold-sparkle: 0 0 25px rgba(255, 215, 0, 0.6);
 }
 
+/* Scroll Progress Bar */
+.ftp-scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--ftp-primary-red), var(--ftp-gold), var(--ftp-primary-red));
+    background-size: 200% auto;
+    animation: ftp-progress-shimmer 3s linear infinite;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 0, 0, 0.4);
+    transition: width 0.1s ease-out;
+}
+
+@keyframes ftp-progress-shimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
 /* Base Reset for Plugin */
 .ftp-wrapper,
 .ftp-wrapper * {
@@ -79,6 +99,45 @@
 .ftp-section-header {
     text-align: center;
     margin-bottom: 60px;
+    position: relative;
+}
+
+/* Section Welcome Badge */
+.ftp-section-header::before {
+    content: 'Welcome';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    background: linear-gradient(135deg, var(--ftp-primary-red), var(--ftp-gold));
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--ftp-white);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 0, 0, 0.4);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+}
+
+.ftp-section-header.ftp-section-welcome::before {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    animation: ftp-welcome-pulse 2s ease-in-out 0.6s;
+}
+
+@keyframes ftp-welcome-pulse {
+    0%, 100% { 
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 0, 0, 0.4);
+    }
+    50% { 
+        transform: translateX(-50%) scale(1.1);
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.9), 0 0 40px rgba(255, 0, 0, 0.6);
+    }
 }
 
 .ftp-section-title {
@@ -208,12 +267,12 @@
     transform: scale(1.05);
 }
 
-/* Sparkling Red/Gold Diagonal Straw - stays inside the 0 */
+/* Sparkling Red/Gold Diagonal Straw - truly inside the 0 */
 .ftp-logo-straw {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    right: 5px;
+    width: 25px;
+    height: 25px;
+    right: 8px;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -1606,9 +1665,9 @@
 
 .ftp-footer-logo-text .ftp-logo-straw {
     position: absolute;
-    width: 38px;
-    height: 38px;
-    right: 8px;
+    width: 35px;
+    height: 35px;
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -2041,15 +2100,15 @@
     
     /* Mobile straw adjustment */
     .ftp-logo-straw {
-        width: 24px;
-        height: 24px;
-        right: 4px;
+        width: 20px;
+        height: 20px;
+        right: 6px;
     }
     
     .ftp-footer-logo-text .ftp-logo-straw {
-        width: 30px;
-        height: 30px;
-        right: 6px;
+        width: 28px;
+        height: 28px;
+        right: 9px;
     }
     
     .ftp-hero-title {

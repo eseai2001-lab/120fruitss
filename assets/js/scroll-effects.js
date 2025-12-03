@@ -20,6 +20,8 @@
         initHeroVideoEffect();
         initMenuNavigation();
         initBackToTop();
+        initScrollProgressBar();
+        initSectionWelcome();
     });
 
     /**
@@ -276,6 +278,57 @@
                 var yPos = -(scrollTop * speed);
                 element.style.transform = 'translate3d(0, ' + yPos + 'px, 0)';
             });
+        });
+    }
+
+    /**
+     * Initialize scroll progress bar
+     */
+    function initScrollProgressBar() {
+        // Create progress bar element
+        var progressBar = document.createElement('div');
+        progressBar.className = 'ftp-scroll-progress';
+        document.body.appendChild(progressBar);
+
+        // Update progress on scroll
+        window.addEventListener('scroll', function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+    }
+
+    /**
+     * Initialize section welcome animations
+     */
+    function initSectionWelcome() {
+        var sectionHeaders = document.querySelectorAll('.ftp-section-header');
+        
+        if (!sectionHeaders.length) return;
+
+        // Create Intersection Observer
+        var observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !entry.target.classList.contains('ftp-section-welcome')) {
+                    entry.target.classList.add('ftp-section-welcome');
+                    
+                    // Remove welcome badge after animation completes
+                    setTimeout(function() {
+                        entry.target.classList.remove('ftp-section-welcome');
+                    }, 2600); // 600ms delay + 2000ms animation
+                }
+            });
+        }, observerOptions);
+
+        // Observe all section headers
+        sectionHeaders.forEach(function(header) {
+            observer.observe(header);
         });
     }
 
