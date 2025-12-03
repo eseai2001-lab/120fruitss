@@ -202,7 +202,7 @@ function ftp_get_special_plan_categories() {
             'description' => 'Nutrient-dense fruit combinations with healthy calories to support muscle growth and healthy weight gain'
         ),
         'libido' => array(
-            'title' => 'Libido',
+            'title' => 'Libido Boost',
             'icon' => '❤️',
             'description' => 'Natural aphrodisiac smoothies to enhance vitality and intimate wellness'
         ),
@@ -210,6 +210,31 @@ function ftp_get_special_plan_categories() {
             'title' => 'Weight Maintenance',
             'icon' => '⚖️',
             'description' => 'Balanced fruit salads and smoothies to help maintain your ideal weight naturally'
+        ),
+        'clear_skin' => array(
+            'title' => 'Clear Skin',
+            'icon' => '✨',
+            'description' => 'Antioxidant-rich smoothies designed to promote healthy, glowing skin from within'
+        ),
+        'stress_relief' => array(
+            'title' => 'Stress Relief',
+            'icon' => '😌',
+            'description' => 'Calming smoothies with natural adaptogens to help reduce stress and promote relaxation'
+        ),
+        'energy_boost' => array(
+            'title' => 'Energy Boost',
+            'icon' => '⚡',
+            'description' => 'Energizing smoothies packed with natural ingredients to increase vitality and stamina'
+        ),
+        'focus' => array(
+            'title' => 'Focus',
+            'icon' => '🎯',
+            'description' => 'Brain-boosting smoothies to enhance mental clarity and concentration'
+        ),
+        'detoxification' => array(
+            'title' => 'Detoxification',
+            'icon' => '🌿',
+            'description' => 'Cleansing smoothies with powerful detoxifying ingredients to purify and rejuvenate'
         ),
     );
 }
@@ -240,11 +265,11 @@ function ftp_get_special_plan_menu_items() {
             )
         ),
         'libido' => array(
-            'title' => 'Libido',
+            'title' => 'Libido Boost',
             'icon' => '❤️',
             'description' => 'Natural aphrodisiac smoothies to enhance vitality and intimate wellness',
             'items' => array(
-                array('name' => 'Libido Smoothie', 'price' => '₦6,500', 'description' => 'Maca, Tigernut, Dates, Almond, Coconuts, Watermelon, Banana, Sunflower Seed, Honey, Cinnamon (475ml)'),
+                array('name' => 'Libido Boost', 'price' => '₦6,500', 'description' => 'Maca, Tigernut, Dates, Almond, Coconuts, Watermelon, Banana, Sunflower Seed, Honey, Cinnamon (475ml)'),
             )
         ),
         'weight_maintenance' => array(
@@ -254,6 +279,46 @@ function ftp_get_special_plan_menu_items() {
             'items' => array(
                 array('name' => 'Weight Maintenance Fruit Salad', 'price' => '₦8,000', 'description' => 'Apple, Pineapple, Watermelon, Cucumber, Grapes, Greek Yogurt, Almonds, Flax seeds, Honey (1000ml)'),
                 array('name' => 'Weight Maintenance Smoothie', 'price' => '₦6,500', 'description' => 'Apple, Banana, Pineapple, Oat, Greek Yoghurt, Flax seed, Honey (475ml)'),
+            )
+        ),
+        'clear_skin' => array(
+            'title' => 'Clear Skin',
+            'icon' => '✨',
+            'description' => 'Antioxidant-rich smoothies designed to promote healthy, glowing skin from within',
+            'items' => array(
+                array('name' => 'Clear Skin Smoothie', 'price' => '₦6,500', 'description' => 'Pineapple, Pawpaw, Cucumber, Lemon, Goji Berry, Pomegranate, Butterfly Blue Pea (475ml)'),
+            )
+        ),
+        'stress_relief' => array(
+            'title' => 'Stress Relief',
+            'icon' => '😌',
+            'description' => 'Calming smoothies with natural adaptogens to help reduce stress and promote relaxation',
+            'items' => array(
+                array('name' => 'Stress Relief Smoothie', 'price' => '₦5,500', 'description' => 'Pineapple, Pawpaw, Cucumber, Lemon, Goji Berry, Pomegranate, Butterfly Blue Pea (475ml)'),
+            )
+        ),
+        'energy_boost' => array(
+            'title' => 'Energy Boost',
+            'icon' => '⚡',
+            'description' => 'Energizing smoothies packed with natural ingredients to increase vitality and stamina',
+            'items' => array(
+                array('name' => 'Energy Boost Smoothie', 'price' => '₦6,000', 'description' => 'Banana, Pineapple, Orange, Rhodiola, Matcha Green, Shilajit (475ml)'),
+            )
+        ),
+        'focus' => array(
+            'title' => 'Focus',
+            'icon' => '🎯',
+            'description' => 'Brain-boosting smoothies to enhance mental clarity and concentration',
+            'items' => array(
+                array('name' => 'Focus Smoothie', 'price' => '₦4,000', 'description' => 'Banana, Blueberries, Butterfly Pea, Pomegranate, Pumpkin Seeds (475ml)'),
+            )
+        ),
+        'detoxification' => array(
+            'title' => 'Detoxification',
+            'icon' => '🌿',
+            'description' => 'Cleansing smoothies with powerful detoxifying ingredients to purify and rejuvenate',
+            'items' => array(
+                array('name' => 'Detoxification Smoothie', 'price' => '₦5,500', 'description' => 'Pineapple, Cucumber, Pawpaw, Matcha Green, Barley Grass, Chia Seed, Honey (475ml)'),
             )
         ),
     );
