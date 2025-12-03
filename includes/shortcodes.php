@@ -54,7 +54,42 @@ function ftp_header_shortcode() {
     <header class="ftp-header" id="ftp-header">
         <div class="ftp-header-container">
             <div class="ftp-logo">
-                <a href="<?php echo esc_url($home_url); ?>" class="ftp-logo-text">120</a>
+                <a href="<?php echo esc_url($home_url); ?>" class="ftp-logo-text">
+                    120
+                    <svg class="ftp-logo-straw" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Main straw body - diagonal from bottom-left to top-right -->
+                        <line x1="20" y1="80" x2="65" y2="35" stroke="url(#goldGradient)" stroke-width="3" stroke-linecap="round"/>
+                        <!-- Bent tip of straw - bends to the right -->
+                        <path d="M 65 35 Q 75 32, 80 35" stroke="url(#goldGradient)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <!-- Sparkle effects -->
+                        <circle cx="30" cy="70" r="2" fill="#FFD700" opacity="0.8">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="45" cy="55" r="2" fill="#FFEB3B" opacity="0.8">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
+                        </circle>
+                        <circle cx="60" cy="40" r="2" fill="#FFC107" opacity="0.8">
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+                        </circle>
+                        <circle cx="72" cy="34" r="1.5" fill="#FFFFFF" opacity="0.9">
+                            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.2s" repeatCount="indefinite" begin="0.4s"/>
+                        </circle>
+                        <!-- Gold gradient definition -->
+                        <defs>
+                            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1">
+                                    <animate attributeName="stop-color" values="#FFD700;#FFEB3B;#FFC107;#FFD700" dur="3s" repeatCount="indefinite"/>
+                                </stop>
+                                <stop offset="50%" style="stop-color:#FFEB3B;stop-opacity:1">
+                                    <animate attributeName="stop-color" values="#FFEB3B;#FFC107;#FFD700;#FFEB3B" dur="3s" repeatCount="indefinite"/>
+                                </stop>
+                                <stop offset="100%" style="stop-color:#FFC107;stop-opacity:1">
+                                    <animate attributeName="stop-color" values="#FFC107;#FFD700;#FFEB3B;#FFC107" dur="3s" repeatCount="indefinite"/>
+                                </stop>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </a>
             </div>
             <button class="ftp-mobile-menu-toggle" aria-label="Toggle menu">
                 <span class="ftp-hamburger"></span>
@@ -85,15 +120,25 @@ function ftp_header_shortcode() {
  */
 function ftp_hero_shortcode() {
     $whatsapp_order_url = ftp_whatsapp_url(ftp_get_order_phone(), "Hello 120 Fruit Therapy! I would like to place an order. Please assist me with your menu options.");
+    $settings = get_option('ftp_settings', array());
+    $display_mode = isset($settings['hero_display_mode']) ? $settings['hero_display_mode'] : 'video';
+    $hero_image_url = isset($settings['hero_image_url']) ? $settings['hero_image_url'] : '';
     ob_start();
     ?>
     <section class="ftp-hero" id="ftp-hero">
+        <?php if ($display_mode === 'image' && !empty($hero_image_url)) : ?>
+        <div class="ftp-hero-image-container">
+            <div class="ftp-hero-image" style="background-image: url('<?php echo esc_url($hero_image_url); ?>');"></div>
+            <div class="ftp-hero-overlay"></div>
+        </div>
+        <?php else : ?>
         <div class="ftp-hero-video-container">
             <video class="ftp-hero-video" autoplay muted loop playsinline>
                 <source src="<?php echo esc_url(ftp_get_hero_video_url()); ?>" type="video/mp4">
             </video>
             <div class="ftp-hero-overlay"></div>
         </div>
+        <?php endif; ?>
         <div class="ftp-hero-content">
             <h1 class="ftp-hero-title ftp-fade-in-up">Fruit Therapy &amp; Wellness</h1>
             <p class="ftp-hero-subtitle ftp-fade-in-up ftp-delay-1">Hygienically prepared fruits for optimal health</p>
@@ -244,8 +289,10 @@ function ftp_special_plan_menu_section_shortcode() {
                         <div class="ftp-plan-card-image" <?php if ($image_url) : ?>style="background-image: url('<?php echo esc_url($image_url); ?>');"<?php endif; ?>>
                             <?php if (!$image_url) : ?>
                             <div class="ftp-plan-card-placeholder">
-                                <span class="ftp-plan-placeholder-icon"><?php echo esc_html($category['icon']); ?></span>
+                                <span class="ftp-plan-placeholder-icon ftp-sparkle-icon"><?php echo esc_html($category['icon']); ?></span>
                             </div>
+                            <?php else : ?>
+                            <div class="ftp-plan-card-overlay"></div>
                             <?php endif; ?>
                         </div>
                         <h3 class="ftp-plan-title"><?php echo esc_html($category['title']); ?></h3>
@@ -539,7 +586,42 @@ function ftp_footer_shortcode() {
         <div class="ftp-container">
             <div class="ftp-footer-grid">
                 <div class="ftp-footer-brand">
-                    <span class="ftp-footer-logo-text">120</span>
+                    <span class="ftp-footer-logo-text">
+                        120
+                        <svg class="ftp-logo-straw" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Main straw body - diagonal from bottom-left to top-right -->
+                            <line x1="20" y1="80" x2="65" y2="35" stroke="url(#goldGradientFooter)" stroke-width="3" stroke-linecap="round"/>
+                            <!-- Bent tip of straw - bends to the right -->
+                            <path d="M 65 35 Q 75 32, 80 35" stroke="url(#goldGradientFooter)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <!-- Sparkle effects -->
+                            <circle cx="30" cy="70" r="2" fill="#FFD700" opacity="0.8">
+                                <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="45" cy="55" r="2" fill="#FFEB3B" opacity="0.8">
+                                <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
+                            </circle>
+                            <circle cx="60" cy="40" r="2" fill="#FFC107" opacity="0.8">
+                                <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+                            </circle>
+                            <circle cx="72" cy="34" r="1.5" fill="#FFFFFF" opacity="0.9">
+                                <animate attributeName="opacity" values="0.5;1;0.5" dur="1.2s" repeatCount="indefinite" begin="0.4s"/>
+                            </circle>
+                            <!-- Gold gradient definition -->
+                            <defs>
+                                <linearGradient id="goldGradientFooter" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1">
+                                        <animate attributeName="stop-color" values="#FFD700;#FFEB3B;#FFC107;#FFD700" dur="3s" repeatCount="indefinite"/>
+                                    </stop>
+                                    <stop offset="50%" style="stop-color:#FFEB3B;stop-opacity:1">
+                                        <animate attributeName="stop-color" values="#FFEB3B;#FFC107;#FFD700;#FFEB3B" dur="3s" repeatCount="indefinite"/>
+                                    </stop>
+                                    <stop offset="100%" style="stop-color:#FFC107;stop-opacity:1">
+                                        <animate attributeName="stop-color" values="#FFC107;#FFD700;#FFEB3B;#FFC107" dur="3s" repeatCount="indefinite"/>
+                                    </stop>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </span>
                     <p class="ftp-footer-tagline">Health &amp; Wellness Through Fresh Fruits</p>
                 </div>
                 <div class="ftp-footer-links">
@@ -581,9 +663,9 @@ function ftp_footer_shortcode() {
     
     <!-- Floating Support Button - Links to Menu Page -->
     <div class="ftp-floating-support" id="ftp-floating-support">
-        <div class="ftp-support-popup">Place your orders here</div>
+        <div class="ftp-support-popup">Place Order</div>
         <a href="<?php echo esc_url(ftp_get_menu_page_url()); ?>" class="ftp-support-btn">
-            <span class="ftp-support-icon">🛒</span>
+            <span class="ftp-support-icon">💬</span>
         </a>
     </div>
     <?php

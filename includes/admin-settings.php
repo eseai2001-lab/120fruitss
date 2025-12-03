@@ -46,6 +46,14 @@ function ftp_sanitize_settings($input) {
         $sanitized['hero_video_url'] = esc_url_raw($input['hero_video_url']);
     }
     
+    if (isset($input['hero_image_url'])) {
+        $sanitized['hero_image_url'] = esc_url_raw($input['hero_image_url']);
+    }
+    
+    if (isset($input['hero_display_mode'])) {
+        $sanitized['hero_display_mode'] = in_array($input['hero_display_mode'], array('video', 'image')) ? $input['hero_display_mode'] : 'video';
+    }
+    
     if (isset($input['menu_page_url'])) {
         $sanitized['menu_page_url'] = esc_url_raw($input['menu_page_url']);
     }
@@ -72,6 +80,10 @@ function ftp_sanitize_settings($input) {
     
     if (isset($input['plan_images']) && is_array($input['plan_images'])) {
         $sanitized['plan_images'] = array_map('esc_url_raw', $input['plan_images']);
+    }
+    
+    if (isset($input['plan_menu_images']) && is_array($input['plan_menu_images'])) {
+        $sanitized['plan_menu_images'] = array_map('esc_url_raw', $input['plan_menu_images']);
     }
     
     return $sanitized;
@@ -134,6 +146,19 @@ function ftp_settings_page() {
                     
                     <tr>
                         <th scope="row">
+                            <label for="ftp_hero_display_mode">Hero Display Mode</label>
+                        </th>
+                        <td>
+                            <select id="ftp_hero_display_mode" name="ftp_settings[hero_display_mode]">
+                                <option value="video" <?php selected($settings['hero_display_mode'] ?? 'video', 'video'); ?>>Video</option>
+                                <option value="image" <?php selected($settings['hero_display_mode'] ?? 'video', 'image'); ?>>Image</option>
+                            </select>
+                            <p class="description">Choose whether to display a video or image in the hero section.</p>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">
                             <label for="ftp_hero_video_url">Hero Video</label>
                         </th>
                         <td>
@@ -147,7 +172,31 @@ function ftp_settings_page() {
                                     Upload Video
                                 </button>
                             </div>
-                            <p class="description">Upload or enter the URL of the hero section background video. Leave empty to use default.</p>
+                            <p class="description">Upload or enter the URL of the hero section background video. Used when display mode is set to "Video".</p>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row">
+                            <label for="ftp_hero_image_url">Hero Image</label>
+                        </th>
+                        <td>
+                            <div class="ftp-media-field">
+                                <input type="text" 
+                                       id="ftp_hero_image_url" 
+                                       name="ftp_settings[hero_image_url]" 
+                                       value="<?php echo esc_attr($settings['hero_image_url'] ?? ''); ?>" 
+                                       class="regular-text ftp-media-url">
+                                <button type="button" class="button ftp-media-upload" data-target="ftp_hero_image_url">
+                                    Upload Image
+                                </button>
+                                <?php if (!empty($settings['hero_image_url'])) : ?>
+                                <div class="ftp-image-preview">
+                                    <img src="<?php echo esc_url($settings['hero_image_url']); ?>" alt="Hero Image Preview">
+                                </div>
+                                <?php endif; ?>
+                            </div>
+                            <p class="description">Upload or enter the URL of the hero section background image. Used when display mode is set to "Image".</p>
                         </td>
                     </tr>
                     
@@ -297,6 +346,45 @@ function ftp_settings_page() {
                                 </div>
                                 <?php endif; ?>
                             </div>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
+            
+            <div class="ftp-settings-section">
+                <h2>Special Plan Menu Icons (Weight Loss/Gain/Libido/Maintenance)</h2>
+                <p class="description">Upload custom images to replace the default icons for the special plan menu categories on the landing page.</p>
+                
+                <table class="form-table">
+                    <?php 
+                    $plan_categories = ftp_get_special_plan_categories();
+                    foreach ($plan_categories as $key => $category) : 
+                        $plan_key = sanitize_title($category['title']);
+                    ?>
+                    <tr>
+                        <th scope="row">
+                            <label for="ftp_plan_menu_<?php echo esc_attr($plan_key); ?>">
+                                <?php echo esc_html($category['icon'] . ' ' . $category['title']); ?>
+                            </label>
+                        </th>
+                        <td>
+                            <div class="ftp-media-field">
+                                <input type="text" 
+                                       id="ftp_plan_menu_<?php echo esc_attr($plan_key); ?>" 
+                                       name="ftp_settings[plan_menu_images][<?php echo esc_attr($plan_key); ?>]" 
+                                       value="<?php echo esc_attr(isset($settings['plan_menu_images'][$plan_key]) ? $settings['plan_menu_images'][$plan_key] : ''); ?>" 
+                                       class="regular-text ftp-media-url">
+                                <button type="button" class="button ftp-media-upload" data-target="ftp_plan_menu_<?php echo esc_attr($plan_key); ?>">
+                                    Upload
+                                </button>
+                                <?php if (isset($settings['plan_menu_images'][$plan_key]) && !empty($settings['plan_menu_images'][$plan_key])) : ?>
+                                <div class="ftp-image-preview">
+                                    <img src="<?php echo esc_url($settings['plan_menu_images'][$plan_key]); ?>" alt="<?php echo esc_attr($category['title']); ?>">
+                                </div>
+                                <?php endif; ?>
+                            </div>
+                            <p class="description">Upload an image to replace the default icon (<?php echo esc_html($category['icon']); ?>) for this category.</p>
                         </td>
                     </tr>
                     <?php endforeach; ?>

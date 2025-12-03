@@ -201,10 +201,35 @@
     text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
     filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.5));
     transition: transform 0.3s ease;
+    position: relative;
 }
 
 .ftp-logo-text:hover {
     transform: scale(1.05);
+}
+
+/* Sparkling Gold Diagonal Straw */
+.ftp-logo-straw {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
+    animation: ftp-straw-shimmer 2s ease-in-out infinite;
+}
+
+@keyframes ftp-straw-shimmer {
+    0%, 100% { 
+        filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
+        transform: translateY(-50%) scale(1);
+    }
+    50% { 
+        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.9));
+        transform: translateY(-50%) scale(1.05);
+    }
 }
 
 @keyframes ftp-logo-sparkle {
@@ -413,7 +438,8 @@
     overflow: hidden;
 }
 
-.ftp-hero-video-container {
+.ftp-hero-video-container,
+.ftp-hero-image-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -426,6 +452,14 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.ftp-hero-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .ftp-hero-overlay {
@@ -719,12 +753,15 @@
 
 .ftp-placeholder-icon {
     font-size: 4rem;
-    filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.3));
-    transition: transform 0.4s ease;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+    transition: transform 0.4s ease, filter 0.4s ease;
+    animation: ftp-icon-sparkle 2s ease-in-out infinite;
 }
 
 .ftp-menu-card:hover .ftp-placeholder-icon {
-    transform: scale(1.2) rotate(5deg);
+    transform: scale(1.3) rotate(5deg);
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.9)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.6));
+    animation: ftp-icon-wiggle 0.6s ease-in-out;
 }
 
 .ftp-menu-card-overlay {
@@ -756,12 +793,15 @@
 .ftp-menu-card-icon {
     font-size: 3rem;
     margin-bottom: 20px;
-    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.3));
-    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+    transition: transform 0.3s ease, filter 0.3s ease;
+    animation: ftp-icon-sparkle 2s ease-in-out infinite;
 }
 
 .ftp-menu-card:hover .ftp-menu-card-icon {
-    transform: scale(1.1);
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.9)) drop-shadow(0 0 35px rgba(255, 255, 255, 0.6));
+    animation: ftp-icon-wiggle 0.6s ease-in-out;
 }
 
 .ftp-menu-card-title {
@@ -886,15 +926,41 @@
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.ftp-plan-icon {
+.ftp-plan-icon,
+.ftp-plan-placeholder-icon,
+.ftp-sparkle-icon {
     font-size: 3.5rem;
     margin-bottom: 20px;
-    filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.3));
-    transition: transform 0.4s ease;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+    transition: transform 0.4s ease, filter 0.4s ease;
+    animation: ftp-icon-sparkle 2s ease-in-out infinite;
+    display: inline-block;
 }
 
-.ftp-plan-card:hover .ftp-plan-icon {
-    transform: scale(1.15) rotate(5deg);
+@keyframes ftp-icon-sparkle {
+    0%, 100% { 
+        filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+        transform: scale(1);
+    }
+    50% { 
+        filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.9)) drop-shadow(0 0 35px rgba(255, 255, 255, 0.4));
+        transform: scale(1.08);
+    }
+}
+
+.ftp-plan-card:hover .ftp-plan-icon,
+.ftp-plan-card:hover .ftp-plan-placeholder-icon,
+.ftp-plan-card:hover .ftp-sparkle-icon {
+    transform: scale(1.2) rotate(5deg);
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.9)) drop-shadow(0 0 35px rgba(255, 255, 255, 0.6));
+    animation: ftp-icon-wiggle 0.6s ease-in-out;
+}
+
+@keyframes ftp-icon-wiggle {
+    0%, 100% { transform: scale(1.2) rotate(5deg); }
+    25% { transform: scale(1.25) rotate(-5deg); }
+    50% { transform: scale(1.2) rotate(5deg); }
+    75% { transform: scale(1.25) rotate(-5deg); }
 }
 
 .ftp-plan-title {
@@ -1073,12 +1139,15 @@
 .ftp-event-icon {
     font-size: 4rem;
     margin-bottom: 25px;
-    filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.3));
-    transition: transform 0.4s ease;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+    transition: transform 0.4s ease, filter 0.4s ease;
+    animation: ftp-icon-sparkle 2s ease-in-out infinite;
 }
 
 .ftp-event-card:hover .ftp-event-icon {
-    transform: scale(1.15) rotate(-5deg);
+    transform: scale(1.2) rotate(-5deg);
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.9)) drop-shadow(0 0 35px rgba(255, 255, 255, 0.6));
+    animation: ftp-icon-wiggle 0.6s ease-in-out;
 }
 
 .ftp-event-title {
@@ -1378,12 +1447,15 @@
 .ftp-contact-icon {
     font-size: 3.5rem;
     margin-bottom: 20px;
-    filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.3));
-    transition: transform 0.4s ease;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+    transition: transform 0.4s ease, filter 0.4s ease;
+    animation: ftp-icon-sparkle 2s ease-in-out infinite;
 }
 
 .ftp-contact-card:hover .ftp-contact-icon {
-    transform: scale(1.2) rotate(10deg);
+    transform: scale(1.3) rotate(10deg);
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.9)) drop-shadow(0 0 35px rgba(255, 255, 255, 0.6));
+    animation: ftp-icon-wiggle 0.6s ease-in-out;
 }
 
 .ftp-contact-title {
@@ -1516,8 +1588,21 @@
     background-size: 200% auto;
     animation: ftp-logo-sparkle 2s ease-in-out infinite;
     filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.5));
-    display: block;
+    display: inline-block;
     margin-bottom: 12px;
+    position: relative;
+}
+
+.ftp-footer-logo-text .ftp-logo-straw {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
+    animation: ftp-straw-shimmer 2s ease-in-out infinite;
 }
 
 .ftp-footer-tagline {
@@ -1544,11 +1629,24 @@
 }
 
 .ftp-footer-links a {
-    color: var(--ftp-text-muted);
+    color: var(--ftp-gold);
     text-decoration: none;
     transition: var(--ftp-transition);
     position: relative;
     display: inline-block;
+    text-shadow: var(--ftp-gold-glow);
+    animation: ftp-footer-link-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes ftp-footer-link-shimmer {
+    0%, 100% { 
+        color: var(--ftp-gold);
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+    50% { 
+        color: var(--ftp-gold-light);
+        text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    }
 }
 
 .ftp-footer-links a::before {
@@ -1559,6 +1657,12 @@
     color: var(--ftp-gold);
     transition: all 0.3s ease;
     text-shadow: var(--ftp-gold-glow);
+    animation: ftp-sparkle-rotate 2s linear infinite;
+}
+
+@keyframes ftp-sparkle-rotate {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
 }
 
 .ftp-footer-links a:hover::before {
@@ -1566,8 +1670,9 @@
 }
 
 .ftp-footer-links a:hover {
-    color: var(--ftp-gold);
-    text-shadow: var(--ftp-gold-glow);
+    color: var(--ftp-gold-light);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+    transform: translateX(5px);
 }
 
 .ftp-footer-contact p {
@@ -1590,27 +1695,74 @@
     border-radius: 50%;
     text-decoration: none;
     transition: var(--ftp-transition);
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, var(--ftp-gold), var(--ftp-gold-dark));
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    animation: ftp-social-pulse 2s ease-in-out infinite;
+    position: relative;
+}
+
+@keyframes ftp-social-pulse {
+    0%, 100% { 
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+        transform: scale(1.05);
+    }
+}
+
+.ftp-social-link::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--ftp-gold), transparent, var(--ftp-gold-light), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: ftp-social-rotate 3s linear infinite;
+    z-index: -1;
+}
+
+@keyframes ftp-social-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .ftp-social-link:hover {
-    transform: scale(1.2);
-    box-shadow: var(--ftp-gold-sparkle);
+    transform: scale(1.3) rotate(10deg);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+    animation: ftp-social-bounce 0.6s ease-in-out;
+}
+
+@keyframes ftp-social-bounce {
+    0%, 100% { transform: scale(1.3) rotate(10deg); }
+    50% { transform: scale(1.4) rotate(15deg); }
+}
+
+.ftp-social-link:hover::before {
+    opacity: 1;
 }
 
 .ftp-social-link svg {
     width: 22px;
     height: 22px;
-    fill: var(--ftp-white);
+    fill: var(--ftp-black);
     transition: var(--ftp-transition);
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.3));
 }
 
 .ftp-social-link:hover svg {
-    fill: var(--ftp-gold);
+    fill: var(--ftp-white);
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
 }
 
 .ftp-social-link.ftp-instagram:hover {
     background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    box-shadow: 0 0 30px rgba(240, 148, 51, 0.8);
 }
 
 .ftp-social-link.ftp-instagram:hover svg {
@@ -1619,11 +1771,12 @@
 
 .ftp-social-link.ftp-tiktok:hover {
     background: var(--ftp-black);
-    border: 1px solid var(--ftp-white);
+    border: 2px solid var(--ftp-gold);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
 }
 
 .ftp-social-link.ftp-tiktok:hover svg {
-    fill: var(--ftp-white);
+    fill: var(--ftp-gold);
 }
 
 .ftp-footer-bottom {
@@ -1649,23 +1802,30 @@
     position: absolute;
     bottom: 70px;
     right: 0;
-    background: var(--ftp-white);
+    background: linear-gradient(135deg, var(--ftp-gold), var(--ftp-gold-light));
     color: var(--ftp-black);
     padding: 12px 20px;
     border-radius: 10px;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 700;
     white-space: nowrap;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 25px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3);
     /* Always visible - not hidden */
     opacity: 1;
     transform: translateY(0);
-    animation: ftp-popup-bounce 3s ease-in-out infinite;
+    animation: ftp-popup-bounce-sparkle 2s ease-in-out infinite;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes ftp-popup-bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
+@keyframes ftp-popup-bounce-sparkle {
+    0%, 100% { 
+        transform: translateY(0);
+        box-shadow: 0 5px 25px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+    50% { 
+        transform: translateY(-8px);
+        box-shadow: 0 8px 30px rgba(255, 215, 0, 0.7), 0 0 30px rgba(255, 215, 0, 0.5);
+    }
 }
 
 .ftp-support-popup::after {
@@ -1675,7 +1835,7 @@
     right: 20px;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 8px solid var(--ftp-white);
+    border-top: 8px solid var(--ftp-gold-light);
 }
 
 .ftp-support-btn {
@@ -1684,32 +1844,62 @@
     justify-content: center;
     width: 60px;
     height: 60px;
-    background: var(--ftp-primary-red);
+    background: linear-gradient(135deg, var(--ftp-gold), var(--ftp-gold-dark));
     border-radius: 50%;
     text-decoration: none;
-    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
     transition: var(--ftp-transition);
-    animation: ftp-pulse 2s infinite;
+    animation: ftp-pulse-gold 2s infinite;
+    position: relative;
+    overflow: visible;
+}
+
+.ftp-support-btn::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--ftp-gold), transparent, var(--ftp-gold-light), transparent);
+    opacity: 0.6;
+    animation: ftp-chat-rotate 3s linear infinite;
+    z-index: -1;
+}
+
+@keyframes ftp-chat-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .ftp-support-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.5);
+    transform: scale(1.15) rotate(10deg);
+    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6);
+    animation: ftp-chat-wiggle 0.5s ease-in-out;
+}
+
+@keyframes ftp-chat-wiggle {
+    0%, 100% { transform: scale(1.15) rotate(10deg); }
+    25% { transform: scale(1.2) rotate(-10deg); }
+    50% { transform: scale(1.15) rotate(10deg); }
+    75% { transform: scale(1.2) rotate(-10deg); }
 }
 
 .ftp-support-icon {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-@keyframes ftp-pulse {
+@keyframes ftp-pulse-gold {
     0% {
-        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.5);
+        box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5), 0 0 0 0 rgba(255, 215, 0, 0.5);
     }
     70% {
-        box-shadow: 0 0 0 15px rgba(255, 0, 0, 0);
+        box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5), 0 0 0 20px rgba(255, 215, 0, 0);
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+        box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5), 0 0 0 0 rgba(255, 215, 0, 0);
     }
 }
 
