@@ -102,13 +102,13 @@
     position: relative;
 }
 
-/* Section Welcome Badge */
-.ftp-section-header::before {
-    content: 'Welcome';
+/* Section Welcome Badge - positioned on right edge */
+.ftp-section-header::after {
+    content: attr(data-section-name);
     position: absolute;
     top: -30px;
-    left: 50%;
-    transform: translateX(-50%) scale(0);
+    right: 0;
+    transform: translateX(100%) scale(0);
     background: linear-gradient(135deg, var(--ftp-primary-red), var(--ftp-gold));
     padding: 8px 24px;
     border-radius: 50px;
@@ -121,21 +121,22 @@
     opacity: 0;
     transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     pointer-events: none;
+    white-space: nowrap;
 }
 
-.ftp-section-header.ftp-section-welcome::before {
+.ftp-section-header.ftp-section-welcome::after {
     opacity: 1;
-    transform: translateX(-50%) scale(1);
+    transform: translateX(0) scale(1);
     animation: ftp-welcome-pulse 2s ease-in-out 0.6s;
 }
 
 @keyframes ftp-welcome-pulse {
     0%, 100% { 
-        transform: translateX(-50%) scale(1);
+        transform: translateX(0) scale(1);
         box-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 0, 0, 0.4);
     }
     50% { 
-        transform: translateX(-50%) scale(1.1);
+        transform: translateX(0) scale(1.1);
         box-shadow: 0 0 30px rgba(255, 215, 0, 0.9), 0 0 40px rgba(255, 0, 0, 0.6);
     }
 }
@@ -2195,6 +2196,13 @@
     .ftp-offer-card,
     .ftp-contact-card {
         padding: 30px 20px;
+    }
+    
+    /* Mobile welcome badge adjustment */
+    .ftp-section-header::after {
+        font-size: 0.65rem;
+        padding: 6px 16px;
+        top: -25px;
     }
 }
 

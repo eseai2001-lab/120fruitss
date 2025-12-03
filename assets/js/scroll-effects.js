@@ -307,6 +307,15 @@
         
         if (!sectionHeaders.length) return;
 
+        // Set section names from titles
+        sectionHeaders.forEach(function(header) {
+            var titleElement = header.querySelector('.ftp-section-title');
+            if (titleElement) {
+                var sectionName = titleElement.textContent.trim();
+                header.setAttribute('data-section-name', sectionName);
+            }
+        });
+
         // Create Intersection Observer
         var observerOptions = {
             threshold: 0.3,
