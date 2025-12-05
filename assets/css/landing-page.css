@@ -297,9 +297,28 @@
     50% { background-position: 200% center; }
 }
 
-/* Hide image logo - using text logo instead */
-.ftp-logo-img {
-    display: none !important;
+/* Logo image styling - maintains small header height */
+.ftp-logo-image {
+    height: 35px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    display: block;
+    /* High-quality image rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: high-quality;
+}
+
+.ftp-logo-image-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.ftp-logo-image-link:hover {
+    transform: scale(1.05);
 }
 
 .ftp-nav-list {
@@ -512,6 +531,10 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* High-quality video rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: high-quality;
 }
 
 .ftp-hero-image {
@@ -520,6 +543,12 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    /* High-quality image rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: high-quality;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .ftp-hero-overlay {
@@ -569,10 +598,26 @@
 
 .ftp-hero-subtitle {
     font-size: 1.5rem;
-    color: var(--ftp-primary-red);
+    /* Sparkling red and gold gradient text */
+    background: linear-gradient(135deg, var(--ftp-primary-red), var(--ftp-gold), var(--ftp-primary-red));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 20px;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 2px;
+    animation: ftp-text-sparkle-gradient 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.4)) drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+}
+
+@keyframes ftp-text-sparkle-gradient {
+    0%, 100% { 
+        background-position: 0% center;
+    }
+    50% { 
+        background-position: 100% center;
+    }
 }
 
 .ftp-hero-text {
@@ -1637,13 +1682,17 @@
     text-align: left;
 }
 
-.ftp-footer-logo {
-    height: 30px;
+.ftp-footer-logo-image {
+    height: 50px;
     width: auto;
-    max-width: 80px;
+    max-width: 180px;
     object-fit: contain;
     margin-bottom: 12px;
-    display: none;
+    display: block;
+    /* High-quality image rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: high-quality;
 }
 
 /* Text logo for footer */

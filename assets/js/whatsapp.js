@@ -149,42 +149,9 @@
         
         if (!floatingBtn) return;
 
-        // Show popup after 3 seconds
-        setTimeout(function() {
-            var popup = floatingBtn.querySelector('.ftp-support-popup');
-            if (popup) {
-                popup.style.opacity = '1';
-                popup.style.transform = 'translateY(0)';
-                
-                // Hide popup after 5 seconds
-                setTimeout(function() {
-                    popup.style.opacity = '0';
-                    popup.style.transform = 'translateY(10px)';
-                }, 5000);
-            }
-        }, 3000);
+        // Popup is always visible - no hide/show behavior
 
-        // Show popup on scroll
-        var hasShownOnScroll = false;
-        window.addEventListener('scroll', function() {
-            if (hasShownOnScroll) return;
-            
-            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > 500) {
-                hasShownOnScroll = true;
-                var popup = floatingBtn.querySelector('.ftp-support-popup');
-                if (popup) {
-                    popup.style.opacity = '1';
-                    popup.style.transform = 'translateY(0)';
-                    
-                    setTimeout(function() {
-                        popup.style.opacity = '0';
-                        popup.style.transform = 'translateY(10px)';
-                    }, 3000);
-                }
-            }
-        });
+        // Popup stays constant - no scroll-based hiding
     }
 
     // Initialize floating button

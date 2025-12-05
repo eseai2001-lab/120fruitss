@@ -49,15 +49,23 @@ function ftp_header_shortcode() {
     $menu_page_url = ftp_get_menu_page_url();
     $special_plans_url = ftp_get_special_plans_page_url();
     $home_url = home_url('/');
+    $settings = get_option('ftp_settings', array());
+    $logo_url = isset($settings['logo_url']) ? $settings['logo_url'] : '';
     ob_start();
     ?>
     <header class="ftp-header" id="ftp-header">
         <div class="ftp-header-container">
             <div class="ftp-logo">
+                <?php if (!empty($logo_url)) : ?>
+                <a href="<?php echo esc_url($home_url); ?>" class="ftp-logo-image-link">
+                    <img src="<?php echo esc_url($logo_url); ?>" alt="120 Fruit Therapy" class="ftp-logo-image">
+                </a>
+                <?php else : ?>
                 <a href="<?php echo esc_url($home_url); ?>" class="ftp-logo-text">
                     120
                     <?php echo ftp_get_logo_straw_svg('goldGradient'); ?>
                 </a>
+                <?php endif; ?>
             </div>
             <button class="ftp-mobile-menu-toggle" aria-label="Toggle menu">
                 <span class="ftp-hamburger"></span>
@@ -548,16 +556,21 @@ function ftp_footer_shortcode() {
     $settings = get_option('ftp_settings', array());
     $instagram_url = isset($settings['instagram_url']) && !empty($settings['instagram_url']) ? $settings['instagram_url'] : '#';
     $tiktok_url = isset($settings['tiktok_url']) && !empty($settings['tiktok_url']) ? $settings['tiktok_url'] : '#';
+    $logo_url = isset($settings['logo_url']) ? $settings['logo_url'] : '';
     ob_start();
     ?>
     <footer class="ftp-footer" id="ftp-footer">
         <div class="ftp-container">
             <div class="ftp-footer-grid">
                 <div class="ftp-footer-brand">
+                    <?php if (!empty($logo_url)) : ?>
+                    <img src="<?php echo esc_url($logo_url); ?>" alt="120 Fruit Therapy" class="ftp-footer-logo-image">
+                    <?php else : ?>
                     <span class="ftp-footer-logo-text">
                         120
                         <?php echo ftp_get_logo_straw_svg('goldGradientFooter'); ?>
                     </span>
+                    <?php endif; ?>
                     <p class="ftp-footer-tagline">Health &amp; Wellness Through Fresh Fruits</p>
                 </div>
                 <div class="ftp-footer-links">
