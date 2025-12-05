@@ -494,19 +494,55 @@ function ftp_contact_shortcode() {
             </div>
             <div class="ftp-contact-grid">
                 <div class="ftp-contact-card ftp-fade-in-up">
-                    <div class="ftp-contact-icon">📞</div>
+                    <div class="ftp-contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="phoneGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FF0000;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#FFD700;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#FF0000;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M20.487 17.14l-4.065-3.696a1.2 1.2 0 0 0-1.391-.207l-2.053 1.191a15.707 15.707 0 0 1-4.44-4.44l1.191-2.053a1.2 1.2 0 0 0-.207-1.391L6.826 2.479A1.2 1.2 0 0 0 5.13 2.283L2.046 5.366a1.2 1.2 0 0 0-.3 1.293c.67 1.735 1.866 4.078 4.44 6.652 2.574 2.574 4.917 3.77 6.652 4.44a1.2 1.2 0 0 0 1.293-.3l3.083-3.083a1.2 1.2 0 0 0-.196-1.696l-.53-.532z" fill="url(#phoneGradient)" stroke="url(#phoneGradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3 class="ftp-contact-title">Orders &amp; Deliveries</h3>
                     <p class="ftp-contact-number"><?php echo esc_html(ftp_get_order_phone()); ?></p>
                     <a href="tel:+234<?php echo esc_attr(substr(ftp_get_order_phone(), 1)); ?>" class="ftp-btn ftp-btn-outline">Call Now</a>
                 </div>
                 <div class="ftp-contact-card ftp-fade-in-up">
-                    <div class="ftp-contact-icon">💬</div>
+                    <div class="ftp-contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="chatGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FF0000;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#FFD700;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#FF0000;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M12 2C6.486 2 2 5.58 2 10c0 2.29 1.162 4.35 3 5.74V21l4.656-2.5a10.83 10.83 0 0 0 2.344.25c5.514 0 10-3.58 10-8s-4.486-8-10-8zm0 14c-.684 0-1.348-.07-2-.19l-2.656 1.43v-2.57l-.594-.394A5.968 5.968 0 0 1 4 10c0-3.309 3.589-6 8-6s8 2.691 8 6-3.589 6-8 6z" fill="url(#chatGradient)" stroke="url(#chatGradient)" stroke-width="0.5"/>
+                            <circle cx="8" cy="10" r="1.5" fill="url(#chatGradient)"/>
+                            <circle cx="12" cy="10" r="1.5" fill="url(#chatGradient)"/>
+                            <circle cx="16" cy="10" r="1.5" fill="url(#chatGradient)"/>
+                        </svg>
+                    </div>
                     <h3 class="ftp-contact-title">Special Plan Support</h3>
                     <p class="ftp-contact-number">+234 904 214 6929</p>
                     <a href="tel:+2349042146929" class="ftp-btn ftp-btn-outline">Call Now</a>
                 </div>
                 <div class="ftp-contact-card ftp-fade-in-up">
-                    <div class="ftp-contact-icon">📍</div>
+                    <div class="ftp-contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="locationGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FF0000;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#FFD700;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#FF0000;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="url(#locationGradient)" stroke="url(#locationGradient)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3 class="ftp-contact-title">Visit Us</h3>
                     <p class="ftp-contact-address">Come experience our wellness sanctuary</p>
                     <p class="ftp-contact-location">University of Nigeria Nsukka, Marlima Building</p>
