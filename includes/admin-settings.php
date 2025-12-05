@@ -86,6 +86,14 @@ function ftp_sanitize_settings($input) {
         $sanitized['plan_menu_images'] = array_map('esc_url_raw', $input['plan_menu_images']);
     }
     
+    if (isset($input['menu_item_images']) && is_array($input['menu_item_images'])) {
+        $sanitized['menu_item_images'] = array_map('esc_url_raw', $input['menu_item_images']);
+    }
+    
+    if (isset($input['special_plan_menu_item_images']) && is_array($input['special_plan_menu_item_images'])) {
+        $sanitized['special_plan_menu_item_images'] = array_map('esc_url_raw', $input['special_plan_menu_item_images']);
+    }
+    
     return $sanitized;
 }
 
@@ -388,6 +396,92 @@ function ftp_settings_page() {
                         </td>
                     </tr>
                     <?php endforeach; ?>
+                </table>
+            </div>
+            
+            <div class="ftp-settings-section">
+                <h2>Menu Item Images</h2>
+                <p class="description">Upload images for individual menu items. Images will be optimized for quality and performance.</p>
+                
+                <table class="form-table">
+                    <?php 
+                    $all_menu_items = ftp_get_menu_items();
+                    foreach ($all_menu_items as $cat_key => $category) : 
+                        foreach ($category['items'] as $item_index => $item) :
+                            $item_key = sanitize_title($cat_key . '-' . $item['name']);
+                    ?>
+                    <tr>
+                        <th scope="row">
+                            <label for="ftp_menu_item_<?php echo esc_attr($item_key); ?>">
+                                <?php echo esc_html($category['icon'] . ' ' . $item['name']); ?>
+                            </label>
+                        </th>
+                        <td>
+                            <div class="ftp-media-field">
+                                <input type="text" 
+                                       id="ftp_menu_item_<?php echo esc_attr($item_key); ?>" 
+                                       name="ftp_settings[menu_item_images][<?php echo esc_attr($item_key); ?>]" 
+                                       value="<?php echo esc_attr(isset($settings['menu_item_images'][$item_key]) ? $settings['menu_item_images'][$item_key] : ''); ?>" 
+                                       class="regular-text ftp-media-url">
+                                <button type="button" class="button ftp-media-upload" data-target="ftp_menu_item_<?php echo esc_attr($item_key); ?>">
+                                    Upload Image
+                                </button>
+                                <?php if (isset($settings['menu_item_images'][$item_key]) && !empty($settings['menu_item_images'][$item_key])) : ?>
+                                <div class="ftp-image-preview">
+                                    <img src="<?php echo esc_url($settings['menu_item_images'][$item_key]); ?>" alt="<?php echo esc_attr($item['name']); ?>">
+                                </div>
+                                <?php endif; ?>
+                            </div>
+                            <p class="description"><?php echo esc_html(substr($item['description'], 0, 80) . '...'); ?></p>
+                        </td>
+                    </tr>
+                    <?php 
+                        endforeach;
+                    endforeach; 
+                    ?>
+                </table>
+            </div>
+            
+            <div class="ftp-settings-section">
+                <h2>Special Plan Menu Item Images</h2>
+                <p class="description">Upload images for special plan menu items (smoothies). Images will be optimized for quality and performance.</p>
+                
+                <table class="form-table">
+                    <?php 
+                    $special_plan_menu = ftp_get_special_plan_menu_items();
+                    foreach ($special_plan_menu as $cat_key => $category) : 
+                        foreach ($category['items'] as $item_index => $item) :
+                            $item_key = sanitize_title($cat_key . '-' . $item['name']);
+                    ?>
+                    <tr>
+                        <th scope="row">
+                            <label for="ftp_spm_item_<?php echo esc_attr($item_key); ?>">
+                                <?php echo esc_html($category['icon'] . ' ' . $item['name']); ?>
+                            </label>
+                        </th>
+                        <td>
+                            <div class="ftp-media-field">
+                                <input type="text" 
+                                       id="ftp_spm_item_<?php echo esc_attr($item_key); ?>" 
+                                       name="ftp_settings[special_plan_menu_item_images][<?php echo esc_attr($item_key); ?>]" 
+                                       value="<?php echo esc_attr(isset($settings['special_plan_menu_item_images'][$item_key]) ? $settings['special_plan_menu_item_images'][$item_key] : ''); ?>" 
+                                       class="regular-text ftp-media-url">
+                                <button type="button" class="button ftp-media-upload" data-target="ftp_spm_item_<?php echo esc_attr($item_key); ?>">
+                                    Upload Image
+                                </button>
+                                <?php if (isset($settings['special_plan_menu_item_images'][$item_key]) && !empty($settings['special_plan_menu_item_images'][$item_key])) : ?>
+                                <div class="ftp-image-preview">
+                                    <img src="<?php echo esc_url($settings['special_plan_menu_item_images'][$item_key]); ?>" alt="<?php echo esc_attr($item['name']); ?>">
+                                </div>
+                                <?php endif; ?>
+                            </div>
+                            <p class="description"><?php echo esc_html(substr($item['description'], 0, 80) . '...'); ?></p>
+                        </td>
+                    </tr>
+                    <?php 
+                        endforeach;
+                    endforeach; 
+                    ?>
                 </table>
             </div>
             
